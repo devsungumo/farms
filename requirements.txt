@@ -1,1 +1,36 @@
+# Core
 django
+
+# API
+djangorestframework
+djangorestframework-simplejwt
+dj-rest-auth
+
+# Auth
+django-allauth[socialaccount]
+
+# Admin UI
+django-unfold
+
+# CORS
+django-cors-headers
+
+# Filtering & docs
+django-filter
+drf-spectacular
+
+# Storage (Cloudflare R2 / S3-compatible)
+django-storages[s3]
+boto3
+
+# Environment & config
+django-environ
+
+# Payments
+requests
+
+# Images
+Pillow
+
+# Testing (dev only)
+factory-boy
