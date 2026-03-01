@@ -194,6 +194,7 @@ SIMPLE_JWT = {
 
 # CORS
 CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[])
+CORS_ALLOW_CREDENTIALS = True   # required for session cookies (anonymous cart)
 
 # API Docs
 SPECTACULAR_SETTINGS = {

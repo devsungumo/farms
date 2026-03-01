@@ -13,7 +13,14 @@ class CartView(APIView):
     def get(self, request):
         cart = services.get_cart(request)
         serializer = CartSerializer(cart, context={'request': request})
-        return ApiResponse.success(serializer.data)
+        data = dict(serializer.data)
+        # Expose session_key for anonymous users so the frontend can send it
+        # to POST /cart/merge/ after login (session is rotated on login).
+        if not request.user.is_authenticated:
+            if not request.session.session_key:
+                request.session.create()
+            data['session_key'] = request.session.session_key
+        return ApiResponse.success(data)
 
     def delete(self, request):
         services.clear_cart(request)
